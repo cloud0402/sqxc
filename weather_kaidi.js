@@ -156,7 +156,7 @@ let config = {
     darksky_api: "81bd3fb492d3ccefef2dc8122bae8c87", //从https://darksky.net/dev/ 上申请key填入即可
     aqicn_api: "7537ee32e26a8347908df1e82ceea1da9baef2a2", //从http://aqicn.org/data-platform/token/#/ 上申请key填入即可
     huweather_apiKey: "ea3b5db86cde4e0cab76880e7b41ffe9", //和风天气APIkey,可自行前往 https://dev.heweather.com/ 进行获取
-    lat_lon: "41.9930218,128.0730982", //请填写经纬度,直接从谷歌地图中获取即可  //长白山
+    lat_lon: "42.149315,127.5185429", //请填写经纬度,直接从谷歌地图中获取即可  //长白山
 //    lat_lon: "31.041179,121.595996", //请填写经纬度,直接从谷歌地图中获取即可  //富康别墅
     lang: "zh", //语言,随意切换为您想要的语言哦(zh/zh-tw/ja/en/fr/...)
     log: 0, //调试日志,0为不开启,1为开启,2为开启精简日志
@@ -164,7 +164,7 @@ let config = {
     show: {
         //普通每天的
         template: {
-            title: `[长白山天气日报] $[summary]`,
+            title: `[长白山凯蒂假日酒店天气日报] $[summary]`,
             subtitle: `$[weatherIcon]$[weather] $[temperatureMin] ~ $[temperatureMax]°C ☔️降雨概率 $[precipProbability]%`,
             detail: `🥵空气质量 $[aqi]($[aqiDesc]) 🍃风速$[windSpeed]km/h $[windDir]
 🌞紫外线指数 $[uv]($[uvDesc]) 💧湿度$[currentHumidity]%
