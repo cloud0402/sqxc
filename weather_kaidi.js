@@ -14,7 +14,7 @@ let config = {
     show: {
         //普通每天的
         template: {
-            title: `[长白山凯蒂假日酒店天气日报] $[summary]`,
+            title: `长白山凯蒂假日酒店[天气日报] $[summary]`,
             subtitle: `$[weatherIcon]$[weather] $[temperatureMin] ~ $[temperatureMax]°C ☔️降雨概率 $[precipProbability]%`,
             detail: `🥵空气质量 $[aqi]($[aqiDesc]) 🍃风速$[windSpeed]km/h $[windDir]
 🌞紫外线指数 $[uv]($[uvDesc]) 💧湿度$[currentHumidity]%
