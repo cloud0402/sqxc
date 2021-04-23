@@ -64,10 +64,9 @@ function getData() {
     )
 }
 
-const resulturl = "https://www.mxnzp.com/api/lottery/common/check?code=ssq&expect=" + ssqDataAnalyzed.expect
-    + "&lotteryNo=03,04,06,10,18,21,33@10,16&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
-
 function getResult() {
+    const resulturl = "https://www.mxnzp.com/api/lottery/common/check?code=ssq&expect=" + ssqDataAnalyzed.expect
+        + "&lotteryNo=03,04,06,10,18,21,33@10,16&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
     $task.fetch(resulturl).then(response => {
             // let ssqData = JSON.parse(response.body);
             // ssqDataAnalyzed.openCode = ssqData.data.openCode;
