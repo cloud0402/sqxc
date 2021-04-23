@@ -1,5 +1,8 @@
 /**
  * 查询双色球中奖信息
+ *  {"code":1,"msg":"数据返回成功！","data":{"openCode":"02,03,17,18,23,24+01","code":"ssq","expect":"2021043","name":"双色球","time":"2021-04-22 21:18:20"}}
+ *   '{"code":"1","msg":"ok","data":"123"}';
+ *   '{"result":true, "count":42}'
  *
  */
 
@@ -35,24 +38,22 @@ const myCashRequest = {
     body: JSON.stringify(data) // Optional.
 };
 
-const ssqDataAnalyzed = {
-    openCode: {},
-    expect: {},
-    time: {},
-    ssqresult: {},
-    cashresult: {}
-}
+var openCode = "";
+var expect = "";
+var time = "";
+var ssqresult = "";
+var cashresult = "";
 
 function getData() {
     $task.fetch(myDataRequest).then(response => {
-            let ssqData = JSON.parse(response.body);
-            // ssqDataAnalyzed.openCode = ssqData.data.openCode.toString();
-            // ssqDataAnalyzed.expect = ssqData.data.expect.toString();
-            // ssqDataAnalyzed.time = ssqData.data.time.toString();
+            var ssqData = JSON.parse(response.body);
+            openCode = ssqData.data.openCode.toString();
+            expect = ssqData.data.expect.toString();
+            time = ssqData.data.time.toString();
 
             // response.statusCode, response.headers, response.body
             // console.log(response.body);
-            $notify("Title", "Subtitle", ssqData.data); // Success!
+            $notify("Title", "Subtitle", expect); // Success!
             // $notify("Title", "Subtitle", response.body); // Success!
             $done();
         }, reason => {
