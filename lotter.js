@@ -88,3 +88,7 @@ function getResult() {
     )
 }
 
+function ssq() {
+    getData();
+    getResult();
+}
