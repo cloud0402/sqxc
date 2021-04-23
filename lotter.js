@@ -5,7 +5,7 @@
 
 const url = "https://www.mxnzp.com/api//lottery/common/latest?code=ssq&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
 
-const method = "POST";
+const method = "GET";
 const headers = {
     // "Accept": "*/*",
     // "Accept-Encoding": "br, gzip, deflate",
@@ -15,7 +15,7 @@ const headers = {
     // "Host": "app.yymedias.com",
     // "Origin": "https://apph5.yymedias.com",
     // "Referer": "https://apph5.yymedias.com/app/mission",
-    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16A404",
+    // "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16A404",
     // "header-encrypt-code": "123456788sY3zv+fnn5mcDFP6LZBAbmEo=",
     // "is-ios": "ios"
 };
@@ -24,8 +24,8 @@ const data = {"info": "abc"};
 const myDataRequest = {
     url: url,
     method: method, // Optional, default GET.
-    headers: headers, // Optional.
-    body: JSON.stringify(data) // Optional.
+    // headers: headers, // Optional.
+    // body: JSON.stringify(data) // Optional.
 };
 
 const myCashRequest = {
@@ -70,8 +70,8 @@ function getResult() {
     const myCashRequest = {
         url: resulturl,
         method: method, // Optional, default GET.
-        headers: headers, // Optional.
-        body: JSON.stringify(data) // Optional.
+        // headers: headers, // Optional.
+        // body: JSON.stringify(data) // Optional.
     };
     $task.fetch(myCashRequest).then(response => {
             // let ssqData = JSON.parse(response.body);
