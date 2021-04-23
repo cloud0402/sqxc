@@ -45,15 +45,15 @@ const ssqDataAnalyzed = {
 
 function getData() {
     $task.fetch(myDataRequest).then(response => {
-            // let ssqData = JSON.parse(response.body);
+            let ssqData = JSON.parse(response.body);
             // ssqDataAnalyzed.openCode = ssqData.data.openCode.toString();
             // ssqDataAnalyzed.expect = ssqData.data.expect.toString();
             // ssqDataAnalyzed.time = ssqData.data.time.toString();
 
             // response.statusCode, response.headers, response.body
             // console.log(response.body);
-            // $notify("Title", "Subtitle", ssqDataAnalyzed.expect); // Success!
-            $notify("Title", "Subtitle", response.body); // Success!
+            $notify("Title", "Subtitle", ssqData.data.openCode.toString()); // Success!
+            // $notify("Title", "Subtitle", response.body); // Success!
             $done();
         }, reason => {
             // reason.error
