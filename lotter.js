@@ -4,6 +4,7 @@
  */
 
 const url = "https://www.mxnzp.com/api//lottery/common/latest?code=ssq&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
+
 const method = "POST";
 const headers = {
     // "Accept": "*/*",
@@ -20,21 +21,70 @@ const headers = {
 };
 const data = {"info": "abc"};
 
-const myRequest = {
+const myDataRequest = {
     url: url,
     method: method, // Optional, default GET.
     headers: headers, // Optional.
     body: JSON.stringify(data) // Optional.
 };
 
-$task.fetch(myRequest).then(response => {
-    // response.statusCode, response.headers, response.body
-    console.log(response.body);
-    $notify("Title", "Subtitle", response.body); // Success!
-    $done();
-}, reason => {
-    // reason.error
-    $notify("Title", "Subtitle", reason.error); // Error!
-    $done();
-});
+const myCashRequest = {
+    url: url,
+    method: method, // Optional, default GET.
+    headers: headers, // Optional.
+    body: JSON.stringify(data) // Optional.
+};
+
+const ssqDataAnalyzed = {
+    openCode: {},
+    expect: {},
+    time: {},
+    ssqresult: {},
+    cashresult: {}
+}
+
+function getData() {
+    $task.fetch(myDataRequest).then(response => {
+            let ssqData = JSON.parse(response.body);
+            ssqDataAnalyzed.openCode = ssqData.data.openCode;
+            ssqDataAnalyzed.expect = ssqData.data.expect;
+            ssqDataAnalyzed.time = ssqData.data.time;
+
+            // response.statusCode, response.headers, response.body
+            // console.log(response.body);
+            // $notify("Title", "Subtitle", response.body); // Success!
+            $done();
+        }
+        ,
+        reason => {
+            // reason.error
+            // $notify("Title", "Subtitle", reason.error); // Error!
+            $done();
+        }
+    )
+}
+
+const resulturl = "https://www.mxnzp.com/api/lottery/common/check?code=ssq&expect=" + ssqDataAnalyzed.expect
+    + "&lotteryNo=03,04,06,10,18,21,33@10,16&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
+
+function getResult() {
+    $task.fetch(resulturl).then(response => {
+            // let ssqData = JSON.parse(response.body);
+            // ssqDataAnalyzed.openCode = ssqData.data.openCode;
+            // ssqDataAnalyzed.expect = ssqData.data.expect;
+            // ssqDataAnalyzed.time = ssqData.data.time;
+
+            // response.statusCode, response.headers, response.body
+            // console.log(response.body);
+            $notify("Title", "Subtitle", response.body); // Success!
+            $done();
+        }
+        ,
+        reason => {
+            // reason.error
+            $notify("Title", "Subtitle", reason.error); // Error!
+            $done();
+        }
+    )
+}
 
