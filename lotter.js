@@ -92,3 +92,5 @@ function ssq() {
     getData();
     getResult();
 }
+
+ssq();
