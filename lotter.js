@@ -5,7 +5,7 @@
 
 const url = "https://www.mxnzp.com/api//lottery/common/latest?code=ssq&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
 
-const method = "GET";
+const method = "POST";
 const headers = {
     // "Accept": "*/*",
     // "Accept-Encoding": "br, gzip, deflate",
@@ -45,15 +45,15 @@ const ssqDataAnalyzed = {
 
 function getData() {
     $task.fetch(myDataRequest).then(response => {
-            let ssqData = JSON.parse(response.body);
-            ssqDataAnalyzed.openCode = ssqData.data.openCode.toString();
-            ssqDataAnalyzed.expect = ssqData.data.expect.toString();
-            ssqDataAnalyzed.time = ssqData.data.time.toString();
+            // let ssqData = JSON.parse(response.body);
+            // ssqDataAnalyzed.openCode = ssqData.data.openCode.toString();
+            // ssqDataAnalyzed.expect = ssqData.data.expect.toString();
+            // ssqDataAnalyzed.time = ssqData.data.time.toString();
 
             // response.statusCode, response.headers, response.body
             // console.log(response.body);
-            $notify("Title", "Subtitle", ssqDataAnalyzed.expect); // Success!
-            // $notify("Title", "Subtitle", response.body); // Success!
+            // $notify("Title", "Subtitle", ssqDataAnalyzed.expect); // Success!
+            $notify("Title", "Subtitle", response.body); // Success!
             $done();
         }, reason => {
             // reason.error
@@ -93,7 +93,7 @@ function getResult() {
 
 function ssq() {
     getData();
-    getResult();
+    // getResult();
 }
 
 ssq();
