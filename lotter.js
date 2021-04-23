@@ -53,7 +53,7 @@ function getData() {
 
             // response.statusCode, response.headers, response.body
             // console.log(response.body);
-            $notify("Title", "Subtitle", expect); // Success!
+            // $notify("Title", "Subtitle", expect); // Success!
             // $notify("Title", "Subtitle", response.body); // Success!
             $done();
         }, reason => {
@@ -65,10 +65,10 @@ function getData() {
 }
 
 function getResult() {
-    const resulturl = "https://www.mxnzp.com/api/lottery/common/check?code=ssq&expect=" + ssqDataAnalyzed.expect
+    var resulturl = "https://www.mxnzp.com/api/lottery/common/check?code=ssq&expect=" + ssqDataAnalyzed.expect
         + "&lotteryNo=03,04,06,10,18,21,33@10,16&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
-    $notify("Title", "Subtitle", resulturl);
-    const myCashRequest = {
+    // $notify("Title", "Subtitle", resulturl);
+    var myCashRequest = {
         url: resulturl,
         method: method, // Optional, default GET.
         // headers: headers, // Optional.
