@@ -65,7 +65,7 @@ function getData() {
 }
 
 function getResult() {
-    var resulturl = "https://www.mxnzp.com/api/lottery/common/check?code=ssq&expect=" + ssqDataAnalyzed.expect
+    var resulturl = "https://www.mxnzp.com/api/lottery/common/check?code=ssq&expect=" + expect
         + "&lotteryNo=03,04,06,10,18,21,33@10,16&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
     // $notify("Title", "Subtitle", resulturl);
     var myCashRequest = {
@@ -94,7 +94,7 @@ function getResult() {
 
 function ssq() {
     getData();
-    // getResult();
+    getResult();
 }
 
 ssq();
