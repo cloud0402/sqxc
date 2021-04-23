@@ -55,7 +55,7 @@ function getData() {
             // console.log(response.body);
             // $notify("Title", "Subtitle", expect); // Success!
             // $notify("Title", "Subtitle", response.body); // Success!
-            $done();
+            // $done();
         }, reason => {
             // reason.error
             $notify("Title", "Subtitle", reason.error); // Error!
