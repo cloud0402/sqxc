@@ -52,6 +52,7 @@ function getData() {
 
             // response.statusCode, response.headers, response.body
             // console.log(response.body);
+            $notify("Title", "Subtitle", ssqDataAnalyzed.expect); // Success!
             // $notify("Title", "Subtitle", response.body); // Success!
             $done();
         }, reason => {
