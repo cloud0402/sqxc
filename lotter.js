@@ -46,9 +46,9 @@ const ssqDataAnalyzed = {
 function getData() {
     $task.fetch(myDataRequest).then(response => {
             let ssqData = JSON.parse(response.body);
-            ssqDataAnalyzed.openCode = ssqData.data.openCode;
-            ssqDataAnalyzed.expect = ssqData.data.expect;
-            ssqDataAnalyzed.time = ssqData.data.time;
+            ssqDataAnalyzed.openCode = ssqData.data.openCode.toString();
+            ssqDataAnalyzed.expect = ssqData.data.expect.toString();
+            ssqDataAnalyzed.time = ssqData.data.time.toString();
 
             // response.statusCode, response.headers, response.body
             // console.log(response.body);
@@ -65,7 +65,7 @@ function getData() {
 function getResult() {
     const resulturl = "https://www.mxnzp.com/api/lottery/common/check?code=ssq&expect=" + ssqDataAnalyzed.expect
         + "&lotteryNo=03,04,06,10,18,21,33@10,16&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
-    // $notify("Title", "Subtitle", resulturl);
+    $notify("Title", "Subtitle", resulturl);
     const myCashRequest = {
         url: resulturl,
         method: method, // Optional, default GET.
