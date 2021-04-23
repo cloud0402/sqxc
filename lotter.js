@@ -54,11 +54,9 @@ function getData() {
             // console.log(response.body);
             // $notify("Title", "Subtitle", response.body); // Success!
             $done();
-        }
-        ,
-        reason => {
+        }, reason => {
             // reason.error
-            // $notify("Title", "Subtitle", reason.error); // Error!
+            $notify("Title", "Subtitle", reason.error); // Error!
             $done();
         }
     )
@@ -67,8 +65,14 @@ function getData() {
 function getResult() {
     const resulturl = "https://www.mxnzp.com/api/lottery/common/check?code=ssq&expect=" + ssqDataAnalyzed.expect
         + "&lotteryNo=03,04,06,10,18,21,33@10,16&app_id=tzyjqeqgqksqpnmp&app_secret=TWxoOWZkamlWdDhSeTBWcTBiRTkwdz09";
-    $notify("Title", "Subtitle", resulturl);
-    $task.fetch(resulturl).then(response => {
+    // $notify("Title", "Subtitle", resulturl);
+    const myCashRequest = {
+        url: resulturl,
+        method: method, // Optional, default GET.
+        headers: headers, // Optional.
+        body: JSON.stringify(data) // Optional.
+    };
+    $task.fetch(myCashRequest).then(response => {
             // let ssqData = JSON.parse(response.body);
             // ssqDataAnalyzed.openCode = ssqData.data.openCode;
             // ssqDataAnalyzed.expect = ssqData.data.expect;
@@ -78,9 +82,7 @@ function getResult() {
             // console.log(response.body);
             $notify("Title", "Subtitle", response.body); // Success!
             $done();
-        }
-        ,
-        reason => {
+        },reason => {
             // reason.error
             $notify("Title", "Subtitle", reason.error); // Error!
             $done();
